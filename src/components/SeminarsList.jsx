@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SeminarList = ({seminars}) => {
+const SeminarList = ({ seminars, onDelete }) => {
     return (
         <div className="seminars">
             {seminars.map(seminar => (
@@ -9,9 +9,9 @@ const SeminarList = ({seminars}) => {
                     <p><strong>Описание:</strong> {seminar.description}</p>
                     <p><strong>Дата:</strong> {seminar.date}</p>
                     <p><strong>Время:</strong> {seminar.time}</p>
-                    <p><strong>Фото:</strong>
-                        <img src={seminar.photo}/>
-                    </p>
+                    <img src={seminar.photo} alt="фото" />
+
+                    <button onClick={() => onDelete(seminar.id)}>Удалить</button>
                 </div>
             ))}
         </div>

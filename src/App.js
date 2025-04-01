@@ -29,6 +29,26 @@ function App() {
     fetchSeminars();
   }, []);
 
+  // Удаление семинара
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm('Вы уверены, что хотите удалить этот семинар?');
+    if (confirmDelete) {
+      try {
+        const response = await fetch(`${API_URL}/${id}`, {
+          method: 'DELETE'
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        setSeminars(seminars.filter(seminar => seminar.id !== id));
+      } catch (err) {
+        setError(err.message);
+      }
+    }
+  };
+
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка: {error}</div>;
 
@@ -36,6 +56,7 @@ function App() {
     <div className='app'>
       <SeminarList
         seminars={seminars}
+        onDelete={handleDelete} 
       />
     </div>
   );
