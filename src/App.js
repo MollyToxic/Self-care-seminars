@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SeminarList from './components/SeminarsList';
 import './App.css';
 
 const API_URL = 'http://localhost:3001/seminars';
@@ -32,9 +33,11 @@ function App() {
   if (error) return <div>Ошибка: {error}</div>;
 
   return (
-    <>
-
-    </>
+    <div className='app'>
+      <SeminarList
+        seminars={seminars}
+      />
+    </div>
   );
 }
 
