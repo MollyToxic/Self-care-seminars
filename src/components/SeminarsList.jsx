@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SeminarList = ({ seminars, onDelete }) => {
+const SeminarList = ({ seminars, onDelete, onEdit }) => {
     return (
         <div className="seminars">
             {seminars.map(seminar => (
@@ -10,8 +10,10 @@ const SeminarList = ({ seminars, onDelete }) => {
                     <p><strong>Дата:</strong> {seminar.date}</p>
                     <p><strong>Время:</strong> {seminar.time}</p>
                     <img src={seminar.photo} alt="фото" />
-
-                    <button onClick={() => onDelete(seminar.id)}>Удалить</button>
+                    <div className="actions">
+                        <button onClick={() => onEdit(seminar)}>Редактировать</button>
+                        <button onClick={() => onDelete(seminar.id)}>Удалить</button>
+                    </div>
                 </div>
             ))}
         </div>

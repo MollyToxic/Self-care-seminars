@@ -1,7 +1,8 @@
-:root{
+:root {
   --crimson: #B99F98;
   --white: #FDFDFC;
   --beige: #BFAD65;
+  --grey: rgba(0, 0, 0, 0.5);
 }
 
 .app {
@@ -31,20 +32,81 @@
   justify-content: space-around;
 
 }
-.seminars-card > h2{
-    color: var(--beige);
+
+.seminars-card>h2 {
+  color: var(--beige);
 }
-button{
+
+button {
   height: 40px;
-  max-width: 100px;
+  min-width: 100px;
   border: 3px solid var(--beige);
   border-radius: 10px;
   color: var(--beige);
   font-weight: 600;
   background-color: var(--white);
 }
-button:hover{
+
+button:hover {
   cursor: pointer;
   background-color: var(--beige);
   color: var(--white);
+}
+
+.modal {
+  color: var(--crimson);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--grey);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  color: var(--grey);
+  font-weight: 700;
+  outline: none;
+  border: 3px solid var(--crimson);
+  border-radius: 7px;
+  width: 400px;
+  padding: 8px;
+
+}
+.form-group input:focus,
+.form-group textarea:focus{
+    border: 3px solid var(--beige);
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 20px;
 }
